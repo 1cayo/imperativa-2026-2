@@ -155,6 +155,63 @@ public class Main {
         return soma / v.length;
     }
 
+    public static int contarValidos12(int tam) {
+        return tam;
+    }
+
+    public static int somarNumeros12(int[] v, int tam) {
+        int soma = 0;
+        for (int i = 0; i < tam; i++) {
+            soma += v[i];
+        }
+        return soma;
+    }
+
+    public static double mediaNumeros12(int[] v, int tam) {
+        if (tam == 0) return 0.0;
+        return (double) somarNumeros12(v, tam) / tam;
+    }
+
+    public static int maiorNumero12(int[] v, int tam) {
+        int maior = v[0];
+        for (int i = 1; i < tam; i++) {
+            if (v[i] > maior) {
+                maior = v[i];
+            }
+        }
+        return maior;
+    }
+
+    public static int menorNumero12(int[] v, int tam) {
+        int menor = v[0];
+        for (int i = 1; i < tam; i++) {
+            if (v[i] < menor) {
+                menor = v[i];
+            }
+        }
+        return menor;
+    }
+
+    public static int quantidadePares12(int[] v, int tam) {
+        int count = 0;
+        for (int i = 0; i < tam; i++) {
+            if (v[i] % 2 == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int quantidadeImpares12(int[] v, int tam) {
+        int count = 0;
+        for (int i = 0; i < tam; i++) {
+            if (v[i] % 2 != 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(java.util.Locale.US);
@@ -239,5 +296,22 @@ public class Main {
         // System.out.println("Menor número: " + menorNumero10(nums10));
         // System.out.println("Quantidade de pares: " + quantidadePares10(nums10));
         // System.out.printf(java.util.Locale.US, "Média: %.1f\n", mediaNumeros10(nums10));
+
+        // Questao 12:
+        // int[] nums12 = new int[1000];
+        // int tam12 = 0;
+        // int valor = sc.nextInt();
+        // while (valor != -1) {
+        //     nums12[tam12] = valor;
+        //     tam12++;
+        //     valor = sc.nextInt();
+        // }
+        // System.out.println("Quantidade de números: " + contarValidos12(tam12));
+        // System.out.println("Soma: " + somarNumeros12(nums12, tam12));
+        // System.out.printf(java.util.Locale.US, "Média: %.1f\n", mediaNumeros12(nums12, tam12));
+        // System.out.println("Maior número: " + maiorNumero12(nums12, tam12));
+        // System.out.println("Menor número: " + menorNumero12(nums12, tam12));
+        // System.out.println("Quantidade de pares: " + quantidadePares12(nums12, tam12));
+        // System.out.println("Quantidade de ímpares: " + quantidadeImpares12(nums12, tam12));
     }
 }
