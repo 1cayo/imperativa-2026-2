@@ -45,6 +45,10 @@ public class Main {
         return (int) Math.ceil(areaParede / areaAzulejo);
     }
 
+    public static double volumeLata(double raio, double altura) {
+        return Math.PI * Math.pow(raio, 2) * altura;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(java.util.Locale.US);
@@ -69,5 +73,11 @@ public class Main {
         // double largAzulejo = sc.nextDouble();
         // int azulejos = quantidadeAzulejos(altParede, largParede, altAzulejo, largAzulejo);
         // System.out.println("Quantidade de azulejos necessários: " + azulejos);
+
+        // Questao 5:
+        // double raio = sc.nextDouble();
+        // double alturaLata = sc.nextDouble();
+        // double volume = volumeLata(raio, alturaLata);
+        // System.out.printf("Volume da lata de óleo: %.2f m³\n", volume);
     }
 }
