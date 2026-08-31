@@ -117,6 +117,44 @@ public class Main {
         return total - desconto;
     }
 
+    public static int maiorNumero10(int[] v) {
+        int maior = v[0];
+        for (int i = 1; i < v.length; i++) {
+            if (v[i] > maior) {
+                maior = v[i];
+            }
+        }
+        return maior;
+    }
+
+    public static int menorNumero10(int[] v) {
+        int menor = v[0];
+        for (int i = 1; i < v.length; i++) {
+            if (v[i] < menor) {
+                menor = v[i];
+            }
+        }
+        return menor;
+    }
+
+    public static int quantidadePares10(int[] v) {
+        int count = 0;
+        for (int i = 0; i < v.length; i++) {
+            if (v[i] % 2 == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static double mediaNumeros10(int[] v) {
+        double soma = 0;
+        for (int i = 0; i < v.length; i++) {
+            soma += v[i];
+        }
+        return soma / v.length;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(java.util.Locale.US);
@@ -191,5 +229,15 @@ public class Main {
         // System.out.printf(java.util.Locale.US, "Total da compra: %.2f\n", totalCompra);
         // System.out.printf(java.util.Locale.US, "Desconto: %.2f\n", desconto);
         // System.out.printf(java.util.Locale.US, "Valor final: %.2f\n", valorFinal);
+
+        // Questao 11:
+        // int[] nums10 = new int[10];
+        // for (int i = 0; i < 10; i++) {
+        //     nums10[i] = sc.nextInt();
+        // }
+        // System.out.println("Maior número: " + maiorNumero10(nums10));
+        // System.out.println("Menor número: " + menorNumero10(nums10));
+        // System.out.println("Quantidade de pares: " + quantidadePares10(nums10));
+        // System.out.printf(java.util.Locale.US, "Média: %.1f\n", mediaNumeros10(nums10));
     }
 }
