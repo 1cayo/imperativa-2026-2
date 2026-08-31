@@ -10,6 +10,26 @@ public class Main {
         System.out.printf("Rankine: %.3f", ((celsius * 1.8) + 491.67));
     }
 
+    public static void alturaSexo(int sexo, double altura, Scanner sc) {
+
+        int soma = 0, quantidade = 0;
+        for (int i = 0; i < 11; i++) {
+            sexo = sc.nextInt();
+            altura = sc.nextDouble();
+
+            if (sexo == 2) {
+                quantidade = 1;
+                soma += quantidade;
+            }
+
+        }
+
+        System.out.println("Maior altura: ");
+        System.out.println("Menor altura: ");
+        System.out.println("Média da altura dos homens: ");
+        System.out.println("Número de mulheres: " + soma);
+    }
+
     public static void funcionarios(int quant, Scanner sc) {
         double soma = 0;
         double salario = 0;
@@ -19,14 +39,22 @@ public class Main {
             soma += salario;
         }
 
-        System.out.printf(java.util.Locale.US, "Média salarial: %.2f\n", (soma / quant));
+        System.out.printf("Média salarial: %.2f\n", (soma / quant));
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        sc.useLocale(java.util.Locale.US);
 
-        int quant = sc.nextInt();
-        funcionarios(quant, sc);
+        // Q1:
+        // temperatura(2.43);
+
+        // Q2:
+        int sexo = sc.nextInt();
+        double altura = sc.nextDouble();
+        alturaSexo(sexo, altura, sc);
+
+        // Q3:
+        // int quant = sc.nextInt();
+        // funcionarios(quant, sc);
     }
 }
