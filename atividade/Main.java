@@ -63,6 +63,18 @@ public class Main {
         return fat;
     }
 
+    public static int calcularHoras(int totalSegundos) {
+        return totalSegundos / 3600;
+    }
+
+    public static int calcularMinutos(int totalSegundos) {
+        return (totalSegundos % 3600) / 60;
+    }
+
+    public static int calcularSegundosRestantes(int totalSegundos) {
+        return totalSegundos % 60;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(java.util.Locale.US);
@@ -105,5 +117,14 @@ public class Main {
         // int numFatorial = sc.nextInt();
         // int fatorial = calcularFatorial(numFatorial);
         // System.out.println("Fatorial: " + fatorial);
+
+        // Questao 8:
+        // int totalSeg = sc.nextInt();
+        // int h = calcularHoras(totalSeg);
+        // int m = calcularMinutos(totalSeg);
+        // int s = calcularSegundosRestantes(totalSeg);
+        // System.out.println(h + " hora(s)");
+        // System.out.println(m + " minuto(s)");
+        // System.out.println(s + " segundo(s)");
     }
 }
