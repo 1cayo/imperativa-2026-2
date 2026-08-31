@@ -75,6 +75,24 @@ public class Main {
         return totalSegundos % 60;
     }
 
+    public static double calcularMediaIndividual(double n1, double n2, double n3) {
+        return (n1 + n2 + n3) / 3.0;
+    }
+
+    public static String determinarSituacao(double media) {
+        if (media >= 7.0) {
+            return "Aprovado";
+        } else if (media >= 5.0) {
+            return "Recuperação";
+        } else {
+            return "Reprovado";
+        }
+    }
+
+    public static double calcularMediaGeral(double somaMedias, int quantAlunos) {
+        return somaMedias / quantAlunos;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(java.util.Locale.US);
@@ -126,5 +144,20 @@ public class Main {
         // System.out.println(h + " hora(s)");
         // System.out.println(m + " minuto(s)");
         // System.out.println(s + " segundo(s)");
+
+        // Questao 9:
+        // int quantAlunos = sc.nextInt();
+        // double somaMedias = 0;
+        // for (int i = 1; i <= quantAlunos; i++) {
+        //     double n1 = sc.nextDouble();
+        //     double n2 = sc.nextDouble();
+        //     double n3 = sc.nextDouble();
+        //     double media = calcularMediaIndividual(n1, n2, n3);
+        //     somaMedias += media;
+        //     String situacao = determinarSituacao(media);
+        //     System.out.printf(java.util.Locale.US, "Aluno %d - Média: %.1f - %s\n", i, media, situacao);
+        // }
+        // double mediaGeral = calcularMediaGeral(somaMedias, quantAlunos);
+        // System.out.printf(java.util.Locale.US, "Média geral da turma: %.1f\n", mediaGeral);
     }
 }
