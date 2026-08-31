@@ -39,6 +39,12 @@ public class Main {
         return soma / quant;
     }
 
+    public static int quantidadeAzulejos(double altParede, double largParede, double altAzulejo, double largAzulejo) {
+        double areaParede = altParede * largParede;
+        double areaAzulejo = altAzulejo * largAzulejo;
+        return (int) Math.ceil(areaParede / areaAzulejo);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(java.util.Locale.US);
@@ -55,5 +61,13 @@ public class Main {
         // int quant = sc.nextInt();
         // double mediaSalarial = calcularMediaSalarial(quant, sc);
         // System.out.printf("Média salarial: %.2f\n", mediaSalarial);
+
+        // Questao 4:
+        // double altParede = sc.nextDouble();
+        // double largParede = sc.nextDouble();
+        // double altAzulejo = sc.nextDouble();
+        // double largAzulejo = sc.nextDouble();
+        // int azulejos = quantidadeAzulejos(altParede, largParede, altAzulejo, largAzulejo);
+        // System.out.println("Quantidade de azulejos necessários: " + azulejos);
     }
 }
