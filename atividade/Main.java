@@ -55,6 +55,14 @@ public class Main {
         return p / 745.6999;
     }
 
+    public static int calcularFatorial(int n) {
+        int fat = 1;
+        for (int i = 1; i <= n; i++) {
+            fat *= i;
+        }
+        return fat;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(java.util.Locale.US);
@@ -92,5 +100,10 @@ public class Main {
         // double tempo = sc.nextDouble();
         // double hp = calcularPotenciaHp(massa, alturaMassa, tempo);
         // System.out.printf("Potência necessária: %.3f hp\n", hp);
+
+        // Questao 7:
+        // int numFatorial = sc.nextInt();
+        // int fatorial = calcularFatorial(numFatorial);
+        // System.out.println("Fatorial: " + fatorial);
     }
 }
