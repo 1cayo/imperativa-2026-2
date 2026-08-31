@@ -93,6 +93,30 @@ public class Main {
         return somaMedias / quantAlunos;
     }
 
+    public static double calcularTotalCaixa(Scanner sc) {
+        double total = 0;
+        double preco = sc.nextDouble();
+        while (preco != 0) {
+            total += preco;
+            preco = sc.nextDouble();
+        }
+        return total;
+    }
+
+    public static double determinarDescontoCaixa(double total) {
+        if (total > 500.0) {
+            return total * 0.15;
+        } else if (total > 200.0) {
+            return total * 0.10;
+        } else {
+            return 0.0;
+        }
+    }
+
+    public static double calcularValorFinalCaixa(double total, double desconto) {
+        return total - desconto;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(java.util.Locale.US);
@@ -159,5 +183,13 @@ public class Main {
         // }
         // double mediaGeral = calcularMediaGeral(somaMedias, quantAlunos);
         // System.out.printf(java.util.Locale.US, "Média geral da turma: %.1f\n", mediaGeral);
+
+        // Questao 10:
+        // double totalCompra = calcularTotalCaixa(sc);
+        // double desconto = determinarDescontoCaixa(totalCompra);
+        // double valorFinal = calcularValorFinalCaixa(totalCompra, desconto);
+        // System.out.printf(java.util.Locale.US, "Total da compra: %.2f\n", totalCompra);
+        // System.out.printf(java.util.Locale.US, "Desconto: %.2f\n", desconto);
+        // System.out.printf(java.util.Locale.US, "Valor final: %.2f\n", valorFinal);
     }
 }
