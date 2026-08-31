@@ -49,6 +49,12 @@ public class Main {
         return Math.PI * Math.pow(raio, 2) * altura;
     }
 
+    public static double calcularPotenciaHp(double massa, double altura, double tempo) {
+        double g = 9.81;
+        double p = (massa * g * altura) / tempo;
+        return p / 745.6999;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(java.util.Locale.US);
@@ -79,5 +85,12 @@ public class Main {
         // double alturaLata = sc.nextDouble();
         // double volume = volumeLata(raio, alturaLata);
         // System.out.printf("Volume da lata de óleo: %.2f m³\n", volume);
+
+        // Questao 6:
+        // double massa = sc.nextDouble();
+        // double alturaMassa = sc.nextDouble();
+        // double tempo = sc.nextDouble();
+        // double hp = calcularPotenciaHp(massa, alturaMassa, tempo);
+        // System.out.printf("Potência necessária: %.3f hp\n", hp);
     }
 }
