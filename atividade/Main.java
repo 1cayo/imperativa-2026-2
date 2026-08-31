@@ -30,31 +30,30 @@ public class Main {
         System.out.println("Número de mulheres: " + soma);
     }
 
-    public static void funcionarios(int quant, Scanner sc) {
+    public static double calcularMediaSalarial(int quant, Scanner sc) {
         double soma = 0;
-        double salario = 0;
-
         for (int i = 0; i < quant; i++) {
-            salario = sc.nextDouble();
+            double salario = sc.nextDouble();
             soma += salario;
         }
-
-        System.out.printf("Média salarial: %.2f\n", (soma / quant));
+        return soma / quant;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        sc.useLocale(java.util.Locale.US);
 
-        // Q1:
+        // Questao 1:
         // temperatura(2.43);
 
-        // Q2:
-        int sexo = sc.nextInt();
-        double altura = sc.nextDouble();
-        alturaSexo(sexo, altura, sc);
+        // Questao 2:
+        // int sexo = sc.nextInt();
+        // double altura = sc.nextDouble();
+        // alturaSexo(sexo, altura, sc);
 
-        // Q3:
+        // Questao 3:
         // int quant = sc.nextInt();
-        // funcionarios(quant, sc);
+        // double mediaSalarial = calcularMediaSalarial(quant, sc);
+        // System.out.printf("Média salarial: %.2f\n", mediaSalarial);
     }
 }
