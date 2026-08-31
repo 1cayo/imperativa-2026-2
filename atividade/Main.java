@@ -10,24 +10,40 @@ public class Main {
         System.out.printf("Rankine: %.3f", ((celsius * 1.8) + 491.67));
     }
 
-    public static void alturaSexo(int sexo, double altura, Scanner sc) {
+    public static void alturaSexo(Scanner sc) {
+        double maior = 0, menor = 0, somaAlturaHomens = 0;
+        int qtdHomens = 0, qtdMulheres = 0;
 
-        int soma = 0, quantidade = 0;
-        for (int i = 0; i < 11; i++) {
-            sexo = sc.nextInt();
-            altura = sc.nextDouble();
+        for (int i = 0; i < 10; i++) {
+            int sexo = sc.nextInt();
+            double altura = sc.nextDouble();
 
-            if (sexo == 2) {
-                quantidade = 1;
-                soma += quantidade;
+            if (i == 0) {
+                maior = altura;
+                menor = altura;
+            } else {
+                if (altura > maior) {
+                    maior = altura;
+                }
+                if (altura < menor) {
+                    menor = altura;
+                }
             }
 
+            if (sexo == 1) {
+                somaAlturaHomens += altura;
+                qtdHomens++;
+            } else if (sexo == 2) {
+                qtdMulheres++;
+            }
         }
 
-        System.out.println("Maior altura: ");
-        System.out.println("Menor altura: ");
-        System.out.println("Média da altura dos homens: ");
-        System.out.println("Número de mulheres: " + soma);
+        double mediaHomens = qtdHomens > 0 ? somaAlturaHomens / qtdHomens : 0.0;
+
+        System.out.printf(java.util.Locale.US, "Maior altura: %.2f\n", maior);
+        System.out.printf(java.util.Locale.US, "Menor altura: %.2f\n", menor);
+        System.out.printf(java.util.Locale.US, "Média da altura dos homens: %.2f\n", mediaHomens);
+        System.out.println("Número de mulheres: " + qtdMulheres);
     }
 
     public static double calcularMediaSalarial(int quant, Scanner sc) {
@@ -168,7 +184,8 @@ public class Main {
     }
 
     public static double mediaNumeros12(int[] v, int tam) {
-        if (tam == 0) return 0.0;
+        if (tam == 0)
+            return 0.0;
         return (double) somarNumeros12(v, tam) / tam;
     }
 
@@ -217,101 +234,99 @@ public class Main {
         sc.useLocale(java.util.Locale.US);
 
         // Questao 1:
-        // temperatura(2.43);
+        temperatura(2.43);
 
         // Questao 2:
-        // int sexo = sc.nextInt();
-        // double altura = sc.nextDouble();
-        // alturaSexo(sexo, altura, sc);
+        alturaSexo(sc);
 
         // Questao 3:
-        // int quant = sc.nextInt();
-        // double mediaSalarial = calcularMediaSalarial(quant, sc);
-        // System.out.printf("Média salarial: %.2f\n", mediaSalarial);
+        int quant = sc.nextInt();
+        double mediaSalarial = calcularMediaSalarial(quant, sc);
+        System.out.printf("Média salarial: %.2f\n", mediaSalarial);
 
         // Questao 4:
-        // double altParede = sc.nextDouble();
-        // double largParede = sc.nextDouble();
-        // double altAzulejo = sc.nextDouble();
-        // double largAzulejo = sc.nextDouble();
-        // int azulejos = quantidadeAzulejos(altParede, largParede, altAzulejo, largAzulejo);
-        // System.out.println("Quantidade de azulejos necessários: " + azulejos);
+        double altParede = sc.nextDouble();
+        double largParede = sc.nextDouble();
+        double altAzulejo = sc.nextDouble();
+        double largAzulejo = sc.nextDouble();
+        int azulejos = quantidadeAzulejos(altParede, largParede, altAzulejo, largAzulejo);
+        System.out.println("Quantidade de azulejos necessários: " + azulejos);
 
         // Questao 5:
-        // double raio = sc.nextDouble();
-        // double alturaLata = sc.nextDouble();
-        // double volume = volumeLata(raio, alturaLata);
-        // System.out.printf("Volume da lata de óleo: %.2f m³\n", volume);
+        double raio = sc.nextDouble();
+        double alturaLata = sc.nextDouble();
+        double volume = volumeLata(raio, alturaLata);
+        System.out.printf("Volume da lata de óleo: %.2f m³\n", volume);
 
         // Questao 6:
-        // double massa = sc.nextDouble();
-        // double alturaMassa = sc.nextDouble();
-        // double tempo = sc.nextDouble();
-        // double hp = calcularPotenciaHp(massa, alturaMassa, tempo);
-        // System.out.printf("Potência necessária: %.3f hp\n", hp);
+        double massa = sc.nextDouble();
+        double alturaMassa = sc.nextDouble();
+        double tempo = sc.nextDouble();
+        double hp = calcularPotenciaHp(massa, alturaMassa, tempo);
+        System.out.printf("Potência necessária: %.3f hp\n", hp);
 
         // Questao 7:
-        // int numFatorial = sc.nextInt();
-        // int fatorial = calcularFatorial(numFatorial);
-        // System.out.println("Fatorial: " + fatorial);
+        int numFatorial = sc.nextInt();
+        int fatorial = calcularFatorial(numFatorial);
+        System.out.println("Fatorial: " + fatorial);
 
         // Questao 8:
-        // int totalSeg = sc.nextInt();
-        // int h = calcularHoras(totalSeg);
-        // int m = calcularMinutos(totalSeg);
-        // int s = calcularSegundosRestantes(totalSeg);
-        // System.out.println(h + " hora(s)");
-        // System.out.println(m + " minuto(s)");
-        // System.out.println(s + " segundo(s)");
+        int totalSeg = sc.nextInt();
+        int h = calcularHoras(totalSeg);
+        int m = calcularMinutos(totalSeg);
+        int s = calcularSegundosRestantes(totalSeg);
+        System.out.println(h + " hora(s)");
+        System.out.println(m + " minuto(s)");
+        System.out.println(s + " segundo(s)");
 
         // Questao 9:
-        // int quantAlunos = sc.nextInt();
-        // double somaMedias = 0;
-        // for (int i = 1; i <= quantAlunos; i++) {
-        //     double n1 = sc.nextDouble();
-        //     double n2 = sc.nextDouble();
-        //     double n3 = sc.nextDouble();
-        //     double media = calcularMediaIndividual(n1, n2, n3);
-        //     somaMedias += media;
-        //     String situacao = determinarSituacao(media);
-        //     System.out.printf(java.util.Locale.US, "Aluno %d - Média: %.1f - %s\n", i, media, situacao);
-        // }
-        // double mediaGeral = calcularMediaGeral(somaMedias, quantAlunos);
-        // System.out.printf(java.util.Locale.US, "Média geral da turma: %.1f\n", mediaGeral);
+        int quantAlunos = sc.nextInt();
+        double somaMedias = 0;
+        for (int i = 1; i <= quantAlunos; i++) {
+            double n1 = sc.nextDouble();
+            double n2 = sc.nextDouble();
+            double n3 = sc.nextDouble();
+            double media = calcularMediaIndividual(n1, n2, n3);
+            somaMedias += media;
+            String situacao = determinarSituacao(media);
+            System.out.printf(java.util.Locale.US, "Aluno %d - Média: %.1f - %s\n", i, media, situacao);
+        }
+        double mediaGeral = calcularMediaGeral(somaMedias, quantAlunos);
+        System.out.printf(java.util.Locale.US, "Média geral da turma: %.1f\n", mediaGeral);
 
         // Questao 10:
-        // double totalCompra = calcularTotalCaixa(sc);
-        // double desconto = determinarDescontoCaixa(totalCompra);
-        // double valorFinal = calcularValorFinalCaixa(totalCompra, desconto);
-        // System.out.printf(java.util.Locale.US, "Total da compra: %.2f\n", totalCompra);
-        // System.out.printf(java.util.Locale.US, "Desconto: %.2f\n", desconto);
-        // System.out.printf(java.util.Locale.US, "Valor final: %.2f\n", valorFinal);
+        double totalCompra = calcularTotalCaixa(sc);
+        double desconto = determinarDescontoCaixa(totalCompra);
+        double valorFinal = calcularValorFinalCaixa(totalCompra, desconto);
+        System.out.printf(java.util.Locale.US, "Total da compra: %.2f\n", totalCompra);
+        System.out.printf(java.util.Locale.US, "Desconto: %.2f\n", desconto);
+        System.out.printf(java.util.Locale.US, "Valor final: %.2f\n", valorFinal);
 
         // Questao 11:
-        // int[] nums10 = new int[10];
-        // for (int i = 0; i < 10; i++) {
-        //     nums10[i] = sc.nextInt();
-        // }
-        // System.out.println("Maior número: " + maiorNumero10(nums10));
-        // System.out.println("Menor número: " + menorNumero10(nums10));
-        // System.out.println("Quantidade de pares: " + quantidadePares10(nums10));
-        // System.out.printf(java.util.Locale.US, "Média: %.1f\n", mediaNumeros10(nums10));
+        int[] nums10 = new int[10];
+        for (int i = 0; i < 10; i++) {
+            nums10[i] = sc.nextInt();
+        }
+        System.out.println("Maior número: " + maiorNumero10(nums10));
+        System.out.println("Menor número: " + menorNumero10(nums10));
+        System.out.println("Quantidade de pares: " + quantidadePares10(nums10));
+        System.out.printf(java.util.Locale.US, "Média: %.1f\n", mediaNumeros10(nums10));
 
         // Questao 12:
-        // int[] nums12 = new int[1000];
-        // int tam12 = 0;
-        // int valor = sc.nextInt();
-        // while (valor != -1) {
-        //     nums12[tam12] = valor;
-        //     tam12++;
-        //     valor = sc.nextInt();
-        // }
-        // System.out.println("Quantidade de números: " + contarValidos12(tam12));
-        // System.out.println("Soma: " + somarNumeros12(nums12, tam12));
-        // System.out.printf(java.util.Locale.US, "Média: %.1f\n", mediaNumeros12(nums12, tam12));
-        // System.out.println("Maior número: " + maiorNumero12(nums12, tam12));
-        // System.out.println("Menor número: " + menorNumero12(nums12, tam12));
-        // System.out.println("Quantidade de pares: " + quantidadePares12(nums12, tam12));
-        // System.out.println("Quantidade de ímpares: " + quantidadeImpares12(nums12, tam12));
+        int[] nums12 = new int[1000];
+        int tam12 = 0;
+        int valor = sc.nextInt();
+        while (valor != -1) {
+            nums12[tam12] = valor;
+            tam12++;
+            valor = sc.nextInt();
+        }
+        System.out.println("Quantidade de números: " + contarValidos12(tam12));
+        System.out.println("Soma: " + somarNumeros12(nums12, tam12));
+        System.out.printf(java.util.Locale.US, "Média: %.1f\n", mediaNumeros12(nums12, tam12));
+        System.out.println("Maior número: " + maiorNumero12(nums12, tam12));
+        System.out.println("Menor número: " + menorNumero12(nums12, tam12));
+        System.out.println("Quantidade de pares: " + quantidadePares12(nums12, tam12));
+        System.out.println("Quantidade de ímpares: " + quantidadeImpares12(nums12, tam12));
     }
 }
