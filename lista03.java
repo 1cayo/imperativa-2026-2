@@ -4,7 +4,35 @@ import java.util.Locale;
 public class lista03 {
 
     public static void main(String[] args) {
-        // Metodo main para testes das questoes
+        System.out.println("=== LISTA 03 - ORDENACAO E RECURSAO ===");
+
+        System.out.println("\n--- Demonstracao Questao 04 (Fatorial de 5) ---");
+        System.out.println("fatorial(5) = " + fatorial(5));
+
+        System.out.println("\n--- Demonstracao Questao 05 (Decimal para Binario de 13) ---");
+        System.out.println("decimalParaBinario(13) = " + decimalParaBinario(13));
+
+        System.out.println("\n--- Demonstracao Questao 06 (Potencia recursiva 2^5) ---");
+        System.out.println("potencia(2, 5) = " + potencia(2, 5));
+
+        System.out.println("\n--- Demonstracao Questao 07 (Verificar se e primo: 7 e 10) ---");
+        System.out.println("ehPrimo(7) = " + ehPrimo(7));
+        System.out.println("ehPrimo(10) = " + ehPrimo(10));
+
+        System.out.println("\n--- Demonstracao Questao 08 (Soma de 1 ate 5) ---");
+        System.out.println("somaAteN(5) = " + somaAteN(5));
+
+        System.out.println("\n--- Demonstracao Questao 09 (Soma dos inversos ate 4) ---");
+        System.out.println(String.format(Locale.US, "somaInversos(4) = %.4f", somaInversos(4)));
+
+        System.out.println("\n--- Demonstracao Questao 10 (Potencia multiplicacao 3^4) ---");
+        System.out.println("potenciaMultiplicacao(3, 4) = " + potenciaMultiplicacao(3, 4));
+
+        System.out.println("\n--- Demonstracao Questao 11 (Tribonacci de 5) ---");
+        mostrarERetornarTribonacci(5);
+
+        System.out.println("\n--- Demonstracao Questao 12 (Pell de 5) ---");
+        System.out.println("pell(5) = " + pell(5));
     }
 
     // ==========================================
@@ -38,7 +66,14 @@ public class lista03 {
         }
     }
 
+    public static void questao01() {
+        Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
+        questao01(sc);
+    }
+
     public static void questao01(Scanner sc) {
+        sc.useLocale(Locale.US);
         int p = sc.nextInt(); // quantidade de produtos
 
         for (int i = 1; i <= p; i++) {
@@ -88,7 +123,14 @@ public class lista03 {
         }
     }
 
+    public static void questao02() {
+        Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
+        questao02(sc);
+    }
+
     public static void questao02(Scanner sc) {
+        sc.useLocale(Locale.US);
         int s = sc.nextInt(); // numero de secoes
 
         for (int i = 1; i <= s; i++) {
@@ -131,6 +173,11 @@ public class lista03 {
                 }
             }
         }
+    }
+
+    public static void questao03() {
+        Scanner sc = new Scanner(System.in);
+        questao03(sc);
     }
 
     public static void questao03(Scanner sc) {
@@ -215,5 +262,49 @@ public class lista03 {
             return n;
         }
         return n + somaAteN(n - 1);
+    }
+
+    // --- Questão 09: Soma dos inversos de 1 a N ---
+    public static double somaInversos(int n) {
+        if (n <= 1) {
+            return 1.0;
+        }
+        return (1.0 / n) + somaInversos(n - 1);
+    }
+
+    // --- Questão 10: Potência usando apenas multiplicação ---
+    public static long potenciaMultiplicacao(int x, int k) {
+        if (k == 0) {
+            return 1;
+        }
+        return x * potenciaMultiplicacao(x, k - 1);
+    }
+
+    // --- Questão 11: Sequência de Tribonacci ---
+    public static int tribonacci(int n) {
+        if (n == 0 || n == 1) {
+            return 0;
+        }
+        if (n == 2) {
+            return 1;
+        }
+        return tribonacci(n - 1) + tribonacci(n - 2) + tribonacci(n - 3);
+    }
+
+    public static int mostrarERetornarTribonacci(int n) {
+        int resultado = tribonacci(n);
+        System.out.println("Termo " + n + " de Tribonacci: " + resultado);
+        return resultado;
+    }
+
+    // --- Questão 12: Sequência de Pell ---
+    public static int pell(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        return 2 * pell(n - 1) + pell(n - 2);
     }
 }
