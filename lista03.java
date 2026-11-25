@@ -158,4 +158,62 @@ public class lista03 {
         System.out.println("Melhor avaliacao: " + avaliacoes[0]);
         System.out.println("Pior avaliacao: " + avaliacoes[n - 1]);
     }
+
+    // ==========================================
+    // PARTE II — RECURSIVIDADE (Parte 1)
+    // ==========================================
+
+    // --- Questão 04: Fatorial ---
+    public static long fatorial(int n) {
+        if (n <= 1) {
+            return 1;
+        }
+        return n * fatorial(n - 1);
+    }
+
+    // --- Questão 05: Converter decimal para binário ---
+    public static String decimalParaBinario(int n) {
+        if (n == 0) {
+            return "0";
+        }
+        if (n == 1) {
+            return "1";
+        }
+        return decimalParaBinario(n / 2) + (n % 2);
+    }
+
+    // --- Questão 06: Potência recursiva ---
+    public static int potencia(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return x * potencia(x, n - 1);
+    }
+
+    // --- Questão 07: Verificar se um número é primo ---
+    public static boolean ehPrimo(int n, int divisor) {
+        if (n <= 1) {
+            return false;
+        }
+        if (divisor * divisor > n) {
+            return true;
+        }
+        if (n % divisor == 0) {
+            return false;
+        }
+        return ehPrimo(n, divisor + 1);
+    }
+
+    // Sobrecarga para facilitar chamada iniciando com divisor 2
+    public static boolean ehPrimo(int n) {
+        return ehPrimo(n, 2);
+    }
+
+    // --- Questão 08: Soma dos primeiros N inteiros ---
+    public static int somaAteN(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return n + somaAteN(n - 1);
+    }
 }
